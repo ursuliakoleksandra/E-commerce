@@ -2,7 +2,7 @@
 #include <string>
 #include <iostream>
 
-
+using namespace std;
 
 
 User::User(const string& new_name, const string& new_email, int new_age)
@@ -20,10 +20,10 @@ int User::getAge() const {
     return age;
 }
 
-void User::outputUserInfo() const
+
+
+ostream& operator<<(ostream& os, const User& obj)
 {
-    cout << "User_name : " << name_u << endl <<
-        "Age : " << age << endl <<
-        "Email : " << email << endl;
-    cout << "---------------------------------------------------" << endl;
+    os << "User name: " << obj.name_u << endl << "User email: " << obj.email << endl << "User age: " << obj.age << endl;
+    return os;
 }

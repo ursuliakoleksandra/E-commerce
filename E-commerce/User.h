@@ -1,5 +1,6 @@
 #pragma once
 #include <string>
+#include <iostream>
 
 using namespace std;
 
@@ -8,6 +9,7 @@ using namespace std;
 class User
 {
 private:
+    friend ostream& operator<<(ostream &os, const User &obj);
     string name_u;
     string email;
     int age;
@@ -17,6 +19,5 @@ public:
     string getName() const;
     string getEmail() const;
     int getAge() const;
-    void outputUserInfo() const;
 };
 
