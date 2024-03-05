@@ -11,6 +11,7 @@ private:
     string name_p;
     double price;
     int quantity;
+    static int totalCount;
 
 public:
     Product();
@@ -24,5 +25,6 @@ public:
     double getPrice() const;
     int getQuantity() const;
     void outputProductInfo() const;
+    static int getTotalCount();
 };
 
