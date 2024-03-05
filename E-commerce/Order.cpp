@@ -3,7 +3,7 @@
 #include <iostream>
 
 
-string Order::getItems() const {
+/* string Order::getItems() const {
     return items;
 }
 
@@ -13,10 +13,26 @@ double Order::getTotalPrice() const {
 
 string Order::getCurrency() const {
     return currency;
+} */
+
+Order::Order(const Order
+    & other) {
+    items = other.items;
+    total_price = other.total_price;
 }
 
-Order::Order(string new_items, double new_total, string new_currency)
-    : items(new_items), total_price(new_total), currency(new_currency) {}
+Order::Order(Order
+    && other) noexcept {
+    items = move(other.items);
+    total_price = other.total_price;
+    other.total_price = 0;
+}
+
+Order::Order(string items, double total_price, string currency) {
+    this->items = items;
+    this->total_price = total_price;
+    this->currency = currency;
+}
 
 void Order::outputOrderInfo() const {
     cout << " Items : " << items << endl <<
