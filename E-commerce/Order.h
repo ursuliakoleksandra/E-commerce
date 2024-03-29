@@ -1,5 +1,6 @@
 #pragma once
 #include <string>
+#include "Printable.h"
 
 using namespace std;
 
@@ -9,6 +10,7 @@ using namespace std;
 class Order
 {
 private:
+	friend ostream& operator<<(ostream& os, const Order& obj);
 	string items;
 	double total_price;
 	string currency;
@@ -16,6 +18,7 @@ public:
 	Order(const Order &other);
 	Order(Order &&other) noexcept;
 	Order(string items, double total_price, string currency);
+	
 
 
 
@@ -23,7 +26,6 @@ public:
 	string getItems() const;
 	double getTotalPrice() const;
 	string getCurrency() const; */
-	void outputOrderInfo() const;
 
 };
 

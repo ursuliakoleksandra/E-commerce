@@ -34,9 +34,7 @@ Order::Order(string items, double total_price, string currency) {
     this->currency = currency;
 }
 
-void Order::outputOrderInfo() const {
-    cout << " Items : " << items << endl <<
-        "Total Price : " << total_price << endl <<
-        "Currency : " << currency << endl;
-    cout << "---------------------------------------------------" << endl;
+ostream& operator<<(ostream& os, const Order& obj) {
+    os <<"Items "<< obj.items<< endl<< "Total price " << obj.total_price << endl<<"Currency " << obj.currency << endl;
+    return os;
 }
