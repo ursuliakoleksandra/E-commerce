@@ -28,44 +28,15 @@ int User::getAge() const {
     return age;
 }
 
-ostream& operator<<(ostream& os, const User& obj)
+void User::print() const
 {
-    os << "User name: " << obj.name_u << endl << "User email: " << obj.email << endl << "User age: " << obj.age << endl;
-    return os;
+    cout << "User_name : " << name_u << endl <<
+        "Email : " << email << endl <<
+        "Age : " << age << endl;
+    cout << "---------------------------------------------------" << endl;
+
 }
+
 
   
-EmployeeUser::EmployeeUser(const string& new_name, const string& new_email, int age, const string& position, double salary, Order order)
-    : User(new_name, new_email, age), position(position), salary(salary), order(order) {
-    cout << " Employee constructor" << endl;
-}
 
-
-string EmployeeUser::getPosition() const {
-    return position;
-}
-
-
-double EmployeeUser::getSalary() const {
-    return salary;
-}
-
-EmployeeUser::EmployeeUser(const EmployeeUser& other) 
-    : User(other), position(other.position), salary(other.salary), order(other.order) {}
-
-AdminUser::AdminUser(const string& new_name, const string& new_email, int age, const string& position, double salary, Order order , int permission_level, const string& admin_id)
-    : EmployeeUser(new_name, new_email, age, position, salary, order ), permission_level(permission_level), admin_id(admin_id) {
-    cout << " Admin constructor" << endl;
-}
-
-
-
-int AdminUser::getPermissionLevel() const {
-    return permission_level;
-}
-
-
-
-string AdminUser::getAdminId() const {
-    return admin_id;
-}
