@@ -1,28 +1,25 @@
 #include "AdminUser.h"
 
-
-
-
-AdminUser::AdminUser(const string& new_name, const string& new_email, int age, const string& position, double salary, Order order, int permission_level, const string& admin_id)
-    : EmployeeUser(new_name, new_email, age, position, salary, order), permission_level(permission_level), admin_id(admin_id) {
+AdminUser::AdminUser(const string& new_name, const string& new_email, int age, const string& admin_id)
+    : User(new_name, new_email, age), admin_id(admin_id), order()
+{
     cout << " Admin constructor" << endl;
 }
 
-
-int AdminUser::getPermissionLevel() const {
-    return permission_level;
+AdminUser::AdminUser(const string& new_name, const string& new_email, int age, const string& admin_id, Order order)
+    : User(new_name, new_email, age), admin_id(admin_id), order(order)
+{
+    cout << " Admin constructor" << endl;
 }
+
 
 
 string AdminUser::getAdminId() const {
     return admin_id;
 }
 
-void AdminUser::print() const
-{   
-    User::print();
-    cout << "Admin_Id : " << admin_id << endl <<
-        "Permission_level : " << permission_level << endl;
-    cout << "---------------------------------------------------" << endl;
-
+ostream& operator<<(ostream& os, const  AdminUser& admin) {
+    os << "Administrator (Name: " << admin.getName() << ", Age: " << admin.getAge() << ", Admin_ID: "
+        << admin.admin_id << ")" << endl;
+    return os;
 }

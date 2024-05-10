@@ -35,15 +35,33 @@ Product::Product(string name_p, double price, int quantity)
 
 Product::~Product() {}
 
-void Product::outputProductInfo() const
-{
-    cout << "Product_name : " << name_p << endl <<
-        "Price : " << price << endl <<
-        "Quantity : " << quantity << endl;
-    cout << "---------------------------------------------------" << endl;
 
-}
 
 int Product::getTotalCount() {
     return totalCount;
+}
+
+ostream& operator<<(ostream& os, const Product& order) {
+    os << "Product: " << order.name_p << endl <<
+        "Price: " << order.price << endl <<
+        "Quantity: " << order.quantity << endl <<
+        "-------------------------------------" << endl;
+    return os;
+}
+
+void Product::output(ostream& os) const {
+    cout << "Product: " << name_p << endl <<
+        "Price: " << price << endl <<
+        "Quantity: " << quantity << endl;
+    cout << "-------------------------------------" << endl;
+}
+
+istream& operator>>(istream& is, Product& product) {
+    cout << "Enter poduct: " << endl;
+    is >> product.name_p;
+    cout << "Enter Price: " << endl;
+    is >> product.price;
+    cout << "Enter Quantity: " << endl;
+    is >> product.quantity;
+    return is;
 }

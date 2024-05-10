@@ -4,21 +4,16 @@
 
 
 
-class AdminUser final :  public EmployeeUser
+class AdminUser :  public User
 { 
 private:
     string admin_id;
-   int permission_level;
+    Order order;
 public:
-    AdminUser(const string& new_name, const string& new_email, int age, const string& position,
-        double salary,Order order, int permission_level, const string& admin_id);
-    ~AdminUser() { cout << " Admin destructor" << endl; };
-    void print() const override;
-    int getPermissionLevel() const;
+    friend ostream& operator<<(ostream& os, const AdminUser& admin);
+    AdminUser(const string& new_name, const string& new_email, int age, const string& admin_id);
+    AdminUser(const string& new_name, const string& new_email, int age, const string& admin_id, Order order);
+    ~AdminUser() {};
     string getAdminId() const;
-    void hello() const override {
-        cout << " hello Admin! " << endl;
-    }
-    virtual ~AdminUser();
+    
 };
-

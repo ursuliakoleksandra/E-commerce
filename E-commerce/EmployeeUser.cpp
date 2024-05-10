@@ -23,13 +23,13 @@ EmployeeUser::EmployeeUser(const EmployeeUser& other)
     : User(other), position(other.position), salary(other.salary), order(other.order) {}
 
 
-void EmployeeUser::print() const
-{
-    User::print();
-    cout << "Position : " << position << endl <<
-        "Salary : " << salary << endl <<
-        "Order : " << order << endl;
-    order.print();
-    cout << "---------------------------------------------------" << endl;
+//void EmployeeUser::print() const
+//{
+//    User::print();
+//    cout << "Position : " << position << endl <<
+//        "Salary : " << salary << endl;
+//    cout << "---------------------------------------------------" << endl;
+//
+//}
 
-}
+//EmployeeUser::~EmployeeUser(){}

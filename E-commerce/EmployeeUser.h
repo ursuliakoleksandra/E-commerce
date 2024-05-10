@@ -14,14 +14,14 @@ private:
 public:
 	 EmployeeUser(const string& new_name, const string& new_email, int age, const string& position, double salary, Order order);
 	 EmployeeUser(const EmployeeUser& other);
-	 void print() const override;
+	 /*void print() const override;*/
 	
 	 string getPosition() const;
      double getSalary() const;
 	 ~EmployeeUser() { cout << " Employee destructor" << endl; };
-	 void hello() const override {
+	 void hello() const {
 		 cout << " hello Employee! " << endl;
 	 }
-	 virtual ~EmployeeUser();
+	 /*~EmployeeUser();*/
 };
 

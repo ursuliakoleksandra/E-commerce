@@ -8,7 +8,7 @@ using namespace std;
 
 
 
-class User : public Printable
+class User  
 {
 private:
     string name_u;
@@ -16,17 +16,14 @@ private:
     int age;
 
 public:
+    friend ostream& operator<<(ostream& os, const User& user);
     User(const string& new_name, const string& new_email, int age);
     User(const User& other);
     string getName() const;
     string getEmail() const;
     int getAge() const;
-    ~User() { cout << " User destructor" << endl; };
-    void print() const override;
-    virtual void hello() const {
-        cout << " hello User! " << endl;
-    }
-    virtual ~User();
+    ~User() {};
+    
 };
 
 
